@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Blood Donor and Blood Bank Flask Web App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        color: #666;
+      }
+      form {
+        width: 80%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #666;
+      }
+      input[type="text"], input[type="tel"], input[type="password"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: #666;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Blood Donor and Blood Bank Sign up</h1>
+   <form method="POST" action="/signup">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="mobile">Mobile Number:</label>
+  <input type="tel" id="mobile" name="mobile_number" pattern="[0-9]{10}" required>
+
+  <label for="aadhaar">Aadhaar Card Number:</label>
+  <input type="text" id="aadhaar" name="aadhar_card" pattern="[0-9]{12}" placeholder="Enter your 12-digit Aadhaar card number" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+
+  <input type="submit" value="Sign Up">
+</form>
+  </body>
+</html>

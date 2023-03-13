@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Donor and Blood Bank Flask Web App - Dashboard</title>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      padding: 0px;
+    }
+    header {
+      background-color: #dd4b39;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px;
+    }
+    th {
+      background-color: #dd4b39;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="tel"],
+    select,
+    textarea {
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #dd4b39;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #ff6655;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Blood Bank</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </header>
+  <h2>Blood Donors</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Blood Group</th>
+      <th>Mobile Number</th>
+      <th>Address</th>
+      <th>Certificate</th>
+    </tr>
+    {% for blood_donor in blood_donors %}
+    <tr>
+      <td>{{ blood_donor.name }}</td>
+      <td>{{ blood_donor.blood_group }}</td>
+      <td>{{ blood_donor.mobile_number }}</td>
+      <td>{{ blood_donor.address }}</td>
+      <td><a href="blood-report-certificate/{{ blood_donor.id }}"><font color="#222222">Download</font></a> </td>
+    </tr>
+    {% endfor %}
+  </table>
+ <h3>Register a new blood donor:</h3>
+  <form method="POST" action="{{ url_for('register_donor') }}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="blood_group">Blood Group:</label>
+    <select id="blood_group" name="blood_group" required>
+      <option value="" disabled selected>Select your blood group</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+    </select>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="mobile_number" pattern="[0-9]{10}" required>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea>
+
+    <input type="submit" value="Register Donor">
+  </form>
+</body>
+</html>
+

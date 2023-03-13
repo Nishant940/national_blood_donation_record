@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Report Certificate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+    }
+    header {
+      background-color: #dd4b39;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #dd4b39;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .certificate {
+      border: 2px solid #dd4b39;
+      padding: 20px;
+      margin-top: 20px;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .certificate h2 {
+      margin-top: 0;
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .certificate p {
+      font-size: 18px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .certificate span {
+      font-weight: bold;
+    }
+    .certificate button {
+      background-color: #dd4b39;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .certificate button:hover {
+      background-color: #ff6655;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Blood Report Certificate</h1>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+  </header>
+  <div class="certificate">
+    <h2>Blood Test Report</h2>
+    <p><span>Patient Name:</span> {{ patient_name }}</p>
+    <p><span>Blood Group:</span> {{ blood_group }}</p>
+    <p><span>Hemoglobin:</span> {{ hemoglobin }} g/dL</p>
+    <p><span>Platelets:</span> {{ platelets }} cells/mcL</p>
+    <p><span>White Blood Cells:</span> {{ white_blood_cells }} cells/mcL</p>
+    <p><span>Red Blood Cells:</span> {{ red_blood_cells }} cells/mcL</p>
+    <p><span>Cholesterol:</span> {{ cholesterol }} mg/dL</p>
+    <button onclick="window.print()">Print Certificate</button>
+  </div>
+</body>
+</html>

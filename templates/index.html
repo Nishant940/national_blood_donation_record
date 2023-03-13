@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blood Bank and Donor Grids</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+      margin: 20px;
+    }
+    .grid-item {
+      background-color: #fff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      text-align: center;
+    }
+    .grid-item h3 {
+      margin-top: 0;
+    }
+    .grid-item p {
+      margin-bottom: 0;
+    }
+    .signup,
+    .login {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .signup:hover,
+    .login:hover {
+      background-color: #3e8e41;
+    }
+    .blood-bank {
+      background-color: #ff9999;
+    }
+    .blood-donor {
+      background-color: #99ccff;
+    }
+  </style>
+</head>
+<body>
+  <h2>Blood Bank and Donor</h2>
+  <div class="grid-container">
+    <div class="grid-item blood-bank">
+      <h3>Blood Bank</h3>
+      <a href="{{ url_for('signup') }}" class="signup">Sign Up</a>
+      <a href="{{ url_for('login') }}" class="login">Log In</a>
+    </div>
+    <div class="grid-item blood-donor">
+      <h3>Blood Donor</h3>
+      <a href="{{ url_for('signup_donor') }}" class="signup">Sign Up</a>
+      <a href="{{ url_for('login_donor') }}" class="login">Log In</a>
+    </div>
+  </div>
+</body>
+</html>
